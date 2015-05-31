@@ -5,3 +5,4 @@ var/locks/
 var/report/
 var/session/
 app/etc/local.xml
+media/
