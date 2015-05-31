@@ -1,0 +1,9 @@
+
+<config>
+    <modules>
+        <Wyomind_Realinventory>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Wyomind_Realinventory>
+    </modules>
+</config> 

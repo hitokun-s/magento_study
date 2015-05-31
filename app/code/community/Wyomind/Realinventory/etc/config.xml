@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+
+
+<config>
+    <modules>
+        <Wyomind_Realinventory>
+            <version>1.1.0</version>
+        </Wyomind_Realinventory>
+    </modules>
+    <default>
+        <realinventory>
+            <system>
+                <grid>Mage_Adminhtml_Block_Catalog_Product_Grid</grid>
+            </system>
+        </realinventory>
+    </default>
+    <admin>
+        <routers>
+            <realinventory>
+                <use>admin</use>
+               <args>
+                    <module>Wyomind_Realinventory</module>
+                    <frontName>realinventory</frontName>
+                </args>
+            </realinventory>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <use>standard</use>
+            <realinventory>
+                <args>
+                    <module>Wyomind_Realinventory</module>
+                    <frontName>realinventory</frontName>
+                </args>
+            </realinventory>
+        </routers>
+        <events>
+           
+            <checkout_submit_all_after>
+                <observers>
+                    <wyomind_realinventory_checkout_submit_all_after_observer>
+                        <type>singleton</type>
+                        <class>Wyomind_Realinventory_Model_Observer</class>
+                        <method>reserve</method>
+                    </wyomind_realinventory_checkout_submit_all_after_observer>
+                </observers>
+            </checkout_submit_all_after>
+            <sales_order_payment_cancel>
+                <observers>
+                    <wyomind_realinventory_sales_order_payment_cancel_observer>
+                        <type>singleton</type>
+                        <class>Wyomind_Realinventory_Model_Observer</class>
+                        <method>cancel</method>
+                    </wyomind_realinventory_sales_order_payment_cancel_observer>
+                </observers>
+            </sales_order_payment_cancel>
+          
+        </events>
+    </frontend>
+    <adminhtml>
+       
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all> 
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <realinventory>
+                                            <title>Real Inventory</title>
+                                        </realinventory>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+       
+        <events>
+            <core_block_abstract_to_html_before>
+                <observers>
+                    <wyomind_realinventory_catalog_product_grid_column>
+                        <type>model</type>
+                        <class>Wyomind_Realinventory_Model_Observer</class>
+                        <method>addActionColumn</method>
+                    </wyomind_realinventory_catalog_product_grid_column>
+                </observers>
+            </core_block_abstract_to_html_before>
+            <checkout_submit_all_after>
+                <observers>
+                    <wyomind_realinventory_checkout_submit_all_after_observer>
+                        <type>singleton</type>
+                        <class>Wyomind_Realinventory_Model_Observer</class>
+                        <method>reserve</method>
+                    </wyomind_realinventory_checkout_submit_all_after_observer>
+                </observers>
+            </checkout_submit_all_after>
+            <sales_order_payment_cancel>
+                <observers>
+                    <wyomind_realinventory_sales_order_payment_cancel_observer>
+                        <type>singleton</type>
+                        <class>Wyomind_Realinventory_Model_Observer</class>
+                        <method>cancel</method>
+                    </wyomind_realinventory_sales_order_payment_cancel_observer>
+                </observers>
+            </sales_order_payment_cancel>
+            <sales_order_creditmemo_refund>
+                <observers>
+                    <wyomind_realinventory_sales_creditmemo_item_save_after>
+                        <type>singleton</type>
+                        <class>Wyomind_Realinventory_Model_Observer</class>
+                        <method>refund</method>
+                    </wyomind_realinventory_sales_creditmemo_item_save_after>
+                </observers>
+            </sales_order_creditmemo_refund>
+            <sales_order_shipment_save_after>
+                <observers>
+                    <wyomind_realinventory_sales_order_shipment_save_after>
+                        <type>singleton</type>
+                        <class>Wyomind_Realinventory_Model_Observer</class>
+                        <method>shipped</method>
+                    </wyomind_realinventory_sales_order_shipment_save_after>
+                </observers>
+            </sales_order_shipment_save_after>
+        </events>
+    </adminhtml>   
+    <global>
+        <resources>
+            <realinventory_setup>
+                <setup>
+                    <module>Wyomind_Realinventory</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </realinventory_setup>
+            
+        </resources>
+        <helpers>
+            <realinventory>
+                <class>Wyomind_Realinventory_Helper</class>
+            </realinventory>
+        </helpers>
+        <blocks>
+            <realinventory>
+                <class>Wyomind_Realinventory_Block</class>
+            </realinventory>
+        </blocks>
+    </global>
+</config>
+
+
+
+         
+     
+       

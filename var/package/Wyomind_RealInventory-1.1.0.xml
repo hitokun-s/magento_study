@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+    <name>Wyomind_RealInventory</name>
+    <version>1.1.0</version>
+    <stability>stable</stability>
+    <license>free</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Keep your inventory updated until the orders are shipped. Display your stock level in two distinct columns : one for the saleable remaining products  and one other for the already paid but not shipped products.</summary>
+    <description>+ Show the saleable remaining product stocks and the already paid but not shipped product stock&#xD;
++ Keep your Magento inventory synchronized with your real inventory&#xD;
++ See in one glance which products must be shipped&#xD;
++ Can be used with any tiers extension already installed that overrides the default products grid such as "Enhanced Admin Product Grid</description>
+    <notes>v1.1.0</notes>
+    <authors><author><name>Wyomind</name><user>Wyomind</user><email>contact@wyomind.com</email></author></authors>
+    <date>2015-02-09</date>
+    <time>09:30:59</time>
+    <contents><target name="magecommunity"><dir name="Wyomind"><dir name="Realinventory"><dir name="Block"><dir name="Adminhtml"><dir name="System"><dir name="Config"><dir name="Form"><dir name="Field"><file name="Date.php" hash="1048ac959f97468549693067bc0cd582"/></dir></dir></dir></dir></dir><dir name="Renderer"><file name="Qty.php" hash="22af248287d79ec365023cd1ca7ab9a8"/></dir></dir><dir name="Helper"><file name="Data.php" hash="ad19841c1add221eed126808a17a080d"/></dir><dir name="Model"><file name="Observer.php" hash="05070a0b53cd468e42e71204f7b342e5"/></dir><dir name="controllers"><file name="LicenseController.php" hash="831a4b2ca0d4404f74fdb210eea6fac8"/></dir><dir name="etc"><file name="config.xml" hash="96886b5c2e1302d7c26516fbbfe03f19"/><file name="system.xml" hash="af6993d0e4720776537f3940bd9ee32d"/></dir><dir name="sql"><dir name="realinventory_setup"><file name="mysql4-install-1.0.0.php" hash="281ce389c4960100c21039539d601c60"/></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="Wyomind_Realinventory.xml" hash="a55d4da5dc0000c556e72e4e648f26b2"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>4.0.0</min><max>5.6.0</max></php></required></dependencies>
+</package>
