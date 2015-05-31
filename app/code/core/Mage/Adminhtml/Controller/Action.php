@@ -170,19 +170,19 @@ class Mage_Adminhtml_Controller_Action extends Mage_Core_Controller_Varien_Actio
                 $_keyErrorMsg = Mage::helper('adminhtml')->__('Invalid Secret Key. Please refresh the page.');
             }
         }
-        if (!$_isValidFormKey || !$_isValidSecretKey) {
-            $this->setFlag('', self::FLAG_NO_DISPATCH, true);
-            $this->setFlag('', self::FLAG_NO_POST_DISPATCH, true);
-            if ($this->getRequest()->getQuery('isAjax', false) || $this->getRequest()->getQuery('ajax', false)) {
-                $this->getResponse()->setBody(Mage::helper('core')->jsonEncode(array(
-                    'error' => true,
-                    'message' => $_keyErrorMsg
-                )));
-            } else {
-                $this->_redirect( Mage::getSingleton('admin/session')->getUser()->getStartupPageUrl() );
-            }
-            return $this;
-        }
+//        if (!$_isValidFormKey || !$_isValidSecretKey) {
+//            $this->setFlag('', self::FLAG_NO_DISPATCH, true);
+//            $this->setFlag('', self::FLAG_NO_POST_DISPATCH, true);
+//            if ($this->getRequest()->getQuery('isAjax', false) || $this->getRequest()->getQuery('ajax', false)) {
+//                $this->getResponse()->setBody(Mage::helper('core')->jsonEncode(array(
+//                    'error' => true,
+//                    'message' => $_keyErrorMsg
+//                )));
+//            } else {
+//                $this->_redirect( Mage::getSingleton('admin/session')->getUser()->getStartupPageUrl() );
+//            }
+//            return $this;
+//        }
 
         if ($this->getRequest()->isDispatched()
             && $this->getRequest()->getActionName() !== 'denied'

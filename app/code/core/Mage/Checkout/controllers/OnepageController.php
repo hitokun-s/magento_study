@@ -362,11 +362,17 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      */
     public function saveBillingAction()
     {
+		$postBody = file_get_contents('php://input');
+		parse_str($postBody, $_POST);
+
         if ($this->_expireAjax()) {
             return;
         }
         if ($this->getRequest()->isPost()) {
+			Mage::log($this->getRequest());
+			Mage::log($this->getRequest()->getPost());
             $data = $this->getRequest()->getPost('billing', array());
+			Mage::log($data);
             $customerAddressId = $this->getRequest()->getPost('billing_address_id', false);
 
             if (isset($data['email'])) {
@@ -428,6 +434,9 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      */
     public function saveShippingMethodAction()
     {
+		$postBody = file_get_contents('php://input');
+		parse_str($postBody, $_POST);
+
         if ($this->_expireAjax()) {
             return;
         }
@@ -462,6 +471,9 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      */
     public function savePaymentAction()
     {
+		$postBody = file_get_contents('php://input');
+		parse_str($postBody, $_POST);
+
         if ($this->_expireAjax()) {
             return;
         }
@@ -542,6 +554,10 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      */
     public function saveOrderAction()
     {
+
+		$postBody = file_get_contents('php://input');
+		parse_str($postBody, $_POST);
+
         if (!$this->_validateFormKey()) {
             $this->_redirect('*/*');
             return;
